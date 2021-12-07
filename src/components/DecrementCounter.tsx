@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { useContextSelector } from "use-context-selector";
 import { CounterContext } from "../context/CounterContext";
 import { useRenderCount } from "../hooks/useRenderCount";

@@ -1,6 +1,5 @@
 import { ReactNode, useCallback, useState } from "react";
 import { createContext } from "use-context-selector";
-
 interface CounterContextType {
   counter: number;
   increment: () => void;

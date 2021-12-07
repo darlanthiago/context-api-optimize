@@ -7,11 +7,22 @@ import { useRenderCount } from "../hooks/useRenderCount";
 
 export const UserInput: React.FC = () => {
   const [user, setUser] = useState("");
-  const getUser = useContextSelector(UserContext, ({ getUser }) => getUser);
+  const { getUser, reset } = useContextSelector(
+    UserContext,
+    ({ getUser, reset }) => ({
+      getUser,
+      reset,
+    })
+  );
   const renderCount = useRenderCount("UserInput");
 
   function handleSearchUser() {
     getUser(user);
+  }
+
+  function handleReset() {
+    reset();
+    setUser("");
   }
 
   return (
@@ -23,6 +34,9 @@ export const UserInput: React.FC = () => {
       />
       <button type="button" onClick={handleSearchUser}>
         Buscar
+      </button>
+      <button type="button" onClick={handleReset}>
+        Limpar
       </button>
 
       {renderCount}

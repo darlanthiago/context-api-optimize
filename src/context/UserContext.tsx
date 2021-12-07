@@ -13,6 +13,7 @@ interface IUserContext {
   user: UserContextType;
   loading: boolean;
   getUser: (username: string) => Promise<void>;
+  reset: () => void;
 }
 
 const UserContext = createContext({} as IUserContext);
@@ -39,8 +40,12 @@ const UserProvider: React.FC = ({ children }) => {
       });
   }, []);
 
+  function reset() {
+    setUser({} as UserContextType);
+  }
+
   return (
-    <UserContext.Provider value={{ user, loading, getUser }}>
+    <UserContext.Provider value={{ user, loading, getUser, reset }}>
       {children}
     </UserContext.Provider>
   );

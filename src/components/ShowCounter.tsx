@@ -4,7 +4,7 @@ import { useRenderCount } from "../hooks/useRenderCount";
 
 export const ShowCount = () => {
   const renderCount = useRenderCount("ShowCounter");
-
+  
   const counter = useContextSelector(CounterContext, ({ counter }) => counter);
 
   return (
